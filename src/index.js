@@ -1,4 +1,4 @@
-import './styles.scss'
+import './styles.scss';
 
 const listContainer = document.querySelector('.container-list');
 
