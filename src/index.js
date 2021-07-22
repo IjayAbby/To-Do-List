@@ -1,9 +1,12 @@
 import './styles.scss';
 
-import { listContainer, createItemTask } from './modules/renderTasks.js';
-import { dragStart, dragEnd, dragOver, dragDrop, } from './modules/dragDrop.js';
-import { checkBoxStatus, changeStyleTask } from './modules/checkStatus.js';
-import Task from './modules/task.js';
+import { listContainer, createItemTask } from './modules/renderTasks';
+import
+{
+  dragStart, dragEnd, dragOver, dragDrop,
+} from './modules/dragDrop';
+import { checkBoxStatus, changeStyleTask } from './modules/checkStatus';
+import Task from './modules/task';
 
 let toDoTasks = [
   {
