@@ -13,13 +13,14 @@ To get a local copy up and running follow these simple steps:
 1. Go to the [repository page](https://github.com/IjayAbby/To-Do-List).
 2. Press the "Code" button and copy the link.
 3. Clone it using git command `git clone <link>`.
+4. npm install to install dependencies.
+5. To run the application, `npm start`, watch changes `npm watch`
 
 ## :blue_book: Learning Objectives
 
 - Use webpack to bundle JavaScript.
 - Learn how to use proper ES6 syntax.
 - Use ES6 modules to write modular JavaScript.
-
 ## Authors
 
 👤 **Ijay Abby**
