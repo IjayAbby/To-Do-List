@@ -1,26 +1,28 @@
 import './styles.scss';
 
-import { listContainer, createItemTask } from './modules/renderTasks';
-import
-{
+import { listContainer, createItemTask } from './modules/renderTasks.js';
+import {
   dragStart, dragEnd, dragOver, dragDrop,
-} from './modules/dragDrop';
-import { checkBoxStatus, changeStyleTask } from './modules/checkStatus';
-import Task from './modules/task';
+} from './modules/dragDrop.js';
+import { checkBoxStatus, changeStyleTask } from './modules/checkStatus.js';
+import { Task, inputTask, addTask } from './modules/addtask.js';
+import {
+  clearCompletedTasks, removeAllIcon, removeAllItems, removeCompletedItem, removeSelectedItem,
+} from './modules/remove.js';
 
 let toDoTasks = [
   {
-    description: 'Go to the gym',
+    description: 'Wash the dishes',
     completed: false,
     index: 0,
   },
   {
-    description: 'Visit GrandPa',
+    description: 'Brush your teeth',
     completed: true,
     index: 1,
   },
   {
-    description: 'Go to the Laundry',
+    description: 'Wake up early',
     completed: false,
     index: 2,
   },
@@ -81,11 +83,24 @@ const checkBoxStatusContentLoad = () => {
   });
 };
 
+const refreshEditableItems = (tasks) => {
+  const editableItems = document.querySelectorAll('.container-list li .text-task');
+
+  editableItems.forEach((item) => {
+    item.addEventListener('input', () => {
+      tasks[parseInt(item.dataset.id, 10)].description = item.textContent;
+      setData();
+    });
+  });
+};
+
 document.addEventListener('DOMContentLoaded', () => {
   getTaskData();
+  setData();
   displayTasks();
   checkBoxStatusContentLoad();
   refrestTargetDragDrop();
+  refreshEditableItems(toDoTasks);
 });
 
 listContainer.addEventListener('click', (e) => {
@@ -93,5 +108,45 @@ listContainer.addEventListener('click', (e) => {
     checkBoxStatus(e.target);
     refrestCompletedTask(e.target.checked, e.target);
     setData();
+  }
+
+  if (e.target.classList.contains('remove')) {
+    e.target.parentElement.remove();
+    removeSelectedItem(toDoTasks, e.target.dataset.id);
+    setData();
+    displayTasks();
+    refrestTargetDragDrop();
+    refreshEditableItems(toDoTasks);
+  }
+});
+
+removeAllIcon.addEventListener('click', () => {
+  toDoTasks = removeAllItems(toDoTasks, listContainer);
+  setData();
+});
+
+inputTask.addEventListener('keyup', (e) => {
+  e.preventDefault();
+  if (e.keyCode === 13) {
+    const input = document.querySelector('.input-task');
+    addTask(toDoTasks, input);
+    setData();
+    displayTasks();
+    refrestTargetDragDrop();
+    refreshEditableItems(toDoTasks);
+    input.value = '';
+  }
+});
+
+clearCompletedTasks.addEventListener('click', () => {
+  if (toDoTasks.length > 0) {
+    toDoTasks = removeCompletedItem(toDoTasks);
+    toDoTasks.forEach((task, index) => {
+      task.index = index;
+    });
+    setData();
+    displayTasks();
+    refrestTargetDragDrop();
+    refreshEditableItems(toDoTasks);
   }
 });
