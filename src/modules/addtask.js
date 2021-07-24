@@ -11,4 +11,3 @@ export const addTask = (tasks, input) => {
   const newTask = new Task(input.value, false, tasks.length);
   tasks.push(newTask);
 };
-
