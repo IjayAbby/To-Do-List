@@ -1,14 +1,14 @@
 import './styles.scss';
 
-import { listContainer, createItemTask } from './modules/renderTasks.js';
+import { listContainer, createItemTask } from './modules/renderTasks';
 import {
   dragStart, dragEnd, dragOver, dragDrop,
-} from './modules/dragDrop.js';
-import { checkBoxStatus, changeStyleTask } from './modules/checkStatus.js';
-import { Task, inputTask, addTask } from './modules/addtask.js';
+} from './modules/dragDrop';
+import { checkBoxStatus, changeStyleTask } from './modules/checkStatus';
+import { Task, inputTask, addTask } from './modules/addtask';
 import {
   clearCompletedTasks, removeAllIcon, removeAllItems, removeCompletedItem, removeSelectedItem,
-} from './modules/remove.js';
+} from './modules/remove';
 
 let toDoTasks = [
   {
