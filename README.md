@@ -4,6 +4,10 @@
 
 In this project, I am building a clone of Minimalist To do list webpage that can add,delete,drag and drop a todo list item.
 
+## Live demo
+
+[minimalist](https://ijayabby.github.io/To-Do-List/)
+
 ## :hammer: Built With
 
 - HTML, CSS, JS and Webpack.
