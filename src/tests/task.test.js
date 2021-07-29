@@ -20,9 +20,11 @@ describe ('add task', () => {
         expect(tasks.length).toBe(1);
     });
 
-    test('add data to local storage', () => {
-        
-        expect(localStorage.list[1].value).toBe(localStorage.list[1].value)
-    })
+    test('add 3 tasks to local storage', () => {
+        setData();
+        let list = localStorage.list[1];
+        list = list[0];
+        expect(list.value.length).toBe(3);
+    });
 });
 
