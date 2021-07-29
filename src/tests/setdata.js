@@ -1,7 +1,7 @@
 const toDoTasks = require("./todo");
 
 const setData = () => {
-    localStorage.setItemLocalStorage('TaskData', JSON.stringify(toDoTasks));
+    localStorage.setItemLocalStorage('TaskData', toDoTasks);
 };
 
 module.exports = setData;
