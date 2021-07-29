@@ -53,6 +53,8 @@ const setData = () => {
   localStorage.setItem('TaskData', JSON.stringify(toDoTasks));
 };
 
+console.log(setData);
+
 const refrestTargetDragDrop = () => {
   const tasks = document.querySelectorAll('.container-list .item');
 
@@ -150,3 +152,5 @@ clearCompletedTasks.addEventListener('click', () => {
     refreshEditableItems(toDoTasks);
   }
 });
+
+module.exports = setData;
