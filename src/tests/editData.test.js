@@ -6,6 +6,7 @@ const LocalStorage = require('./localStorage');
 const refrestCompletedTask = require('./completedTask');
 const { JSDOM } = jsdom;
 const dom = new JSDOM('<!DOCTYPE html><ul class="container-list"></ul>');
+const dragDrop = require('./dragDrop')
 
 global.localStorage = new LocalStorage();
 
@@ -37,6 +38,15 @@ describe('Updating an item completed status', () => {
 
 describe("Updating an item's index value upon drag/drop actions", () => {
   test('drag and drop', () => {
-
+    const item = dom.window.document.createElement('li');
+    item.setAttribute('data-id', 0);
+    item.innerHTML = 'Play guitar';
+    const item2 = dom.window.document.createElement('li');
+    item2.setAttribute('data-id', 2);
+    item2.innerHTML = 'Watch the sunset';
+    dragDrop(item, item2);
+    const list = localStorage.list[1];
+    const taskList = list[0];
+    expect(taskList.value[0].description).toBe('Watch the sunset')
   })
-})
+});
