@@ -27,12 +27,12 @@ describe ('add task', () => {
         list = list[0];
         expect(list.value.length).toBe(3);
     });
+});
 
+describe('remove task', () => {
     test('remove task from local storage', () => {
-       setData();
-       expect(removeCompletedItem )
-    })
-
-
+        setData();
+        expect(removeCompletedItem )
+     });
 });
 
