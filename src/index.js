@@ -150,3 +150,5 @@ clearCompletedTasks.addEventListener('click', () => {
     refreshEditableItems(toDoTasks);
   }
 });
+
+module.exports = setData;
