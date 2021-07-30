@@ -4,10 +4,12 @@ const addTask = require('./addTask.js');
 const LocalStorage = require('./localStorage')
 const setData = require('./setdata')
 const removeCompletedItem = require('./remove')
+const removeselectedItem = require('./removeTask')
 
 const myTask = new Task("", false, 0);
 const tasks = [];
 const input = "new task";
+const toDoTasks = require("./todo");
 
 global.localStorage = new LocalStorage();
 
@@ -30,9 +32,20 @@ describe ('add task', () => {
 });
 
 describe('remove task', () => {
-    test('remove task from local storage', () => {
-        setData();
-        expect(removeCompletedItem )
+    test('remove task from array', () => {
+        expect(removeCompletedItem(toDoTasks).length).toBe(2);
      });
+
+     test('remove item', () => {
+        removeselectedItem(toDoTasks, 0);
+        expect(toDoTasks.length).toBe(2);
+     });
+
+     test('update local storage to have two elements', () => {
+        setData();
+        let list = localStorage.list[1];
+        list = list[0];
+        expect(list.value.length).toBe(2);
+    });
 });
 
