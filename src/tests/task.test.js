@@ -3,6 +3,7 @@ const Task = require ('./task.js');
 const addTask = require('./addTask.js');
 const LocalStorage = require('./localStorage')
 const setData = require('./setdata')
+const removeCompletedItem = require('./remove')
 
 const myTask = new Task("", false, 0);
 const tasks = [];
@@ -26,5 +27,12 @@ describe ('add task', () => {
         list = list[0];
         expect(list.value.length).toBe(3);
     });
+
+    test('remove task from local storage', () => {
+       setData();
+       expect(removeCompletedItem )
+    })
+
+
 });
 
