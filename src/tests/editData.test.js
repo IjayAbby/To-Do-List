@@ -7,6 +7,7 @@ const refrestCompletedTask = require('./completedTask');
 const { JSDOM } = jsdom;
 const dom = new JSDOM('<!DOCTYPE html><ul class="container-list"></ul>');
 const dragDrop = require('./dragDrop')
+const removeCompletedItem = require('./remove');
 
 global.localStorage = new LocalStorage();
 
@@ -49,4 +50,10 @@ describe("Updating an item's index value upon drag/drop actions", () => {
     const taskList = list[0];
     expect(taskList.value[0].description).toBe('Watch the sunset')
   })
+});
+
+describe("Clear all selected tasks", () => {
+  test('remove task from array', () => {
+    expect(removeCompletedItem(toDoTasks).length).toBe(1);
+  });
 });
