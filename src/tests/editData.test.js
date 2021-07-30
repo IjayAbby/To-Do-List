@@ -34,3 +34,9 @@ describe('Updating an item completed status', () => {
     expect(taskList.value[0].completed).toBe(true)
   })
 })
+
+describe("Updating an item's index value upon drag/drop actions", () => {
+  test('drag and drop', () => {
+
+  })
+})
