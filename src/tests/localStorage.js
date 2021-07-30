@@ -1,11 +1,11 @@
 class LocalStorage {
-    constructor() {
-        this.list = ['TaskData', []]
-    }
+  constructor() {
+    this.list = ['TaskData', []];
+  }
 
-    setItemLocalStorage(key, value) {
-        this.list[1].push({key, value})
-    }
+  setItemLocalStorage(key, value) {
+    this.list[1].push({ key, value });
+  }
 }
 
 module.exports = LocalStorage;

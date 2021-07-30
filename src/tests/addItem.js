@@ -1,16 +1,16 @@
-const listContainer = require('./task.test.js')
+const listContainer = require('./task.test');
 
 const createItemTask = (task) => {
-    listContainer.insertAdjacentHTML(
-      'beforeend',
-      `<li data-id="${task.index}" draggable="true" class="item">
+  listContainer.insertAdjacentHTML(
+    'beforeend',
+    `<li data-id="${task.index}" draggable="true" class="item">
       <input class="checkbox" type="checkbox" data-id="${task.index}">
       <label class="text-task" data-id="${task.index}" contenteditable=true>${task.description}</label><br>
       <i class="fas fa-trash-alt remove" data-id="${task.index}"></i>
       <i class="fas fa-ellipsis-v icon-item"></i>
       </li>
       `,
-    );
+  );
 };
 
 module.exports = createItemTask;

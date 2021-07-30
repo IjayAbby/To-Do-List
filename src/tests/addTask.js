@@ -1,4 +1,4 @@
-const Task = require ('./task.js');
+const Task = require('./task');
 
 const addTask = (tasks, input) => {
   const newTask = new Task(input.value, false, tasks.length);
